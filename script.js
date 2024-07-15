@@ -15,11 +15,26 @@ const generateTable = () => {
     }
     if(rowsNumber>0 && columnsNumber>0){
         tableExists = true
+    } else {
+        const title = "Invalid Inputs";
+        const text = 'Please, Enter a positive number of rows and columns.'
+        Swal.fire({
+            icon: "error",
+            title,
+            text,
+          });
     }
 }
 
 const ExportToExcel = (type, fn, dl) => {
     if(!tableExists){
+        const title = "No Table Yet";
+        const text = 'Please, generate a table first.'
+        Swal.fire({
+            icon: "error",
+            title,
+            text,
+          });
         return
     }
     var elt = table
